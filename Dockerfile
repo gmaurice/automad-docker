@@ -14,9 +14,7 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
 	install-php-extensions zip curl gd
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
-
-RUN composer create-project --no-scripts automad/automad /app
+COPY ./automad /app
 RUN chown -R www-data:www-data /app
 RUN chmod -R 755 /app
 
