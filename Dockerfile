@@ -25,7 +25,8 @@ COPY etc/automad.conf /etc/nginx/sites-enabled/automad.conf
 COPY etc/supervisord.conf /etc/supervisord.conf
 
 COPY init.sh /init.sh
-RUN chmod +x /init.sh
+COPY kube-init.sh /kube-init.sh
+RUN chmod +x /init.sh /kube-init.sh
 
 WORKDIR /app
 VOLUME /app
